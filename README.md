@@ -7,7 +7,17 @@ Alfred workflow for quick currencies conversion using [CoinMarketCap API](https:
 ## Pre-Requisites
 
 - The [Deno](https://deno.land) runtime installed (`brew install deno`)
-- The [CoinMarketCap API Key](https://coinmarketcap.com/api) (the free plan should is more than enough)
+- The [CoinMarketCap API Key](https://coinmarketcap.com/api) (the free plan should be more than enough)
+
+## Instalation
+
+1. Download the `CoinMarketCap.alfredworkflow` file found on the [Releases](https://github.com/Gamote/alfred-cointmarketcap/releases) page.
+2. Double click on the file and adjust the environment variables with your details
+    ```
+    API_KEY="YOUR_KEY"
+    DEFAULT_CURRENCY="YOUR_USD"
+    ```
+3. Press `Import` and your good to go.
 
 ## How to use
 
@@ -18,3 +28,7 @@ Alfred workflow for quick currencies conversion using [CoinMarketCap API](https:
 For all the variants you can:
 - Hit `↵` to copy the result to clipboard
 - Hold `⌘` key and hit `↵` to open CoinMarketCap website on selected coin
+
+## Credits
+
+This repo is a [pawelgrzybek/alfred-cointmarketcap](https://github.com/pawelgrzybek/alfred-cointmarketcap) fork.
