@@ -4,6 +4,8 @@
 <dict>
 	<key>bundleid</key>
 	<string>ro.gamote.alfred.cmc</string>
+	<key>category</key>
+	<string>Internet</string>
 	<key>connections</key>
 	<dict>
 		<key>0D265930-ED49-45C3-B122-4361957E0EE7</key>
@@ -37,7 +39,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>CMC</string>
+	<string>CoinMarketCap</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -108,7 +110,7 @@ fi</string>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Example: cmc 0.7 BTC USD</string>
+				<string>Example: cmc 1 BTC USD</string>
 				<key>title</key>
 				<string>Convert coin price using CoinMarketCap</string>
 				<key>type</key>
@@ -150,23 +152,23 @@ fi</string>
 		<key>0D265930-ED49-45C3-B122-4361957E0EE7</key>
 		<dict>
 			<key>xpos</key>
-			<integer>25</integer>
+			<integer>200</integer>
 			<key>ypos</key>
-			<integer>155</integer>
+			<integer>245</integer>
 		</dict>
 		<key>A1B83FE2-0349-4478-8276-C872A0E4A210</key>
 		<dict>
 			<key>xpos</key>
-			<integer>310</integer>
+			<integer>485</integer>
 			<key>ypos</key>
-			<integer>230</integer>
+			<integer>320</integer>
 		</dict>
 		<key>A4535E99-B842-4B3A-8DDF-DCB5356FCCDD</key>
 		<dict>
 			<key>xpos</key>
-			<integer>315</integer>
+			<integer>490</integer>
 			<key>ypos</key>
-			<integer>80</integer>
+			<integer>170</integer>
 		</dict>
 	</dict>
 	<key>variables</key>
@@ -182,8 +184,8 @@ fi</string>
 		<string>DEFAULT_CURRENCY</string>
 	</array>
 	<key>version</key>
-	<string></string>
+	<string>1.0.0</string>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/Gamote/alfred-cointmarketcap</string>
 </dict>
 </plist>

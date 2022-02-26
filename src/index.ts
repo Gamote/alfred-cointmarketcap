@@ -1,18 +1,3 @@
-interface Response {
-  data: {
-    id: number;
-    symbol: string;
-    name: string;
-    amount: number;
-    quote: {
-      GBP: {
-        price: number;
-        last_updated: Date;
-      };
-    };
-  };
-}
-
 interface Result {
   title: string;
   subtitle: string;
@@ -39,20 +24,13 @@ interface Input {
 
 const MISSING_ARGUMENT_MESSAGE = Object.freeze({
   title: `Incorrect argument`,
-  subtitle: `Example: cmc 0.02 BTC GBP`,
+  subtitle: `Example: cmc 1 BTC EUR`,
 });
 
 const ERROR_MESSAGE = Object.freeze({
   title: `Incorrect request`,
   subtitle: `Are you sure thi coin exists? How about your API key?`,
 });
-
-const newError = (e?: unknown) => {
-  return {
-    title: `Incorrect request`,
-    subtitle: `${JSON.stringify(e)}`,
-  }
-}
 
 const printResult = (result: Result) =>
   console.log(`${JSON.stringify({ items: [result] })}`);
@@ -61,6 +39,7 @@ const printResult = (result: Result) =>
  * Parse the query into an {@link Input} type
  */
 const parseQuery = (): Input => {
+  // @ts-ignore
   const args = Deno.args[0].split(" ");
 
   // Checks the arguments
@@ -120,12 +99,7 @@ const main = async () => {
   try {
     input = parseQuery();
   } catch (e) {
-    printResult({
-      title: `Incorrect request`,
-      // subtitle: `Error: ${JSON.stringify(e.message)}`,
-      subtitle: `Error: ${JSON.stringify(Deno.args)}`,
-    });
-    return;
+    return printResult(MISSING_ARGUMENT_MESSAGE);
   }
 
   const { apiKey, value, coinSource, coinOutput } = input;
@@ -134,7 +108,7 @@ const main = async () => {
   const coinSourceUpperCase = coinSource.toUpperCase();
   const coinTargetUpperCase = coinOutput.toUpperCase();
 
-  //
+  // Make the request
   try {
     const response = await fetch(
       `https://pro-api.coinmarketcap.com/v1/tools/price-conversion?amount=${value}&symbol=${coinSourceUpperCase}&convert=${coinTargetUpperCase}`,
@@ -164,8 +138,7 @@ const main = async () => {
       },
     });
   } catch(e) {
-    // printResult(ERROR_MESSAGE);
-    printResult(newError(`${e.message} - ${apiKey}`));
+    printResult(ERROR_MESSAGE);
   }
 }
 
